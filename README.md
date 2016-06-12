@@ -1,8 +1,8 @@
-# SoundCloud Link Preview for Mixmax
+# SoundCloud & Invisionapp Link Preview for Mixmax
 
 [![BuildStatus](https://travis-ci.org/prashannth/soundcloud-mixmax-link-resolver.svg?branch=master)](https://travis-ci.org/prashannth/soundcloud-mixmax-link-resolver)
 
-This renders two views - One for a single sound/song & Other for a playlist/album
+This renders two views - One for a single sound/song & Other for a playlist/album for SoundCloud and A mobile prototype of your app UX from Invisionapp.
 
 This is an open source Mixmax Link Resolver. See <http://sdk.mixmax.com/docs/tutorial-giphy-link-preview> for more information about how to use this example code in Mixmax.
 
@@ -15,8 +15,8 @@ To install the link resolver for your MixMax account, follow these instructions:
  2. Once you are on the integrations page, scroll all the way down to the bottom.
  3. Click on the button that says __Add Link Resolver__.
  4. Fill out the form as follows:
-    * Description: `SoundCloud`
-    * Regular Expression: `soundcloud.com/[a-zA-Z0-9]+`
+    * Description: `SoundCloud & Invisionapp`
+    * Regular Expression: `soundcloud.com/[a-zA-Z0-9]|invis.io/[a-zA-Z0-9]|projects.invisionapp.com/share/[a-zA-Z0-9]+`
     * Resolver API URL: `https://mixmax-link-resolver.herokuapp.com/resolver`
  5. Click the __Add link resolver__ button.
 

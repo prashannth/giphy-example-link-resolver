@@ -1,11 +1,11 @@
 {
   "name": "soundcloud-mixmax-link-resolver",
   "version": "0.0.1",
-  "description": "SoundCloud Link Resolver App for Mixmax",
+  "description": "SoundCloud & Invisionapp Link Resolver App for Mixmax",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter spec --timeout 15000"
   },
   "repository": {
     "type": "git",
