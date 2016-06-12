@@ -1,21 +1,21 @@
 {
-  "name": "giphy-mixmax-app",
+  "name": "soundcloud-mixmax-link-resolver",
   "version": "0.0.1",
-  "description": "Giphy App for Mixmax",
-  "main": "index.js",
+  "description": "SoundCloud Link Resolver App for Mixmax",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mixmaxhq/giphy-mixmax-app.git"
+    "url": "git://github.com/prashannth/soundcloud-mixmax-link-resolver.git"
   },
-  "author": "Chanpory Rith <chanpory@mixmax.com> (https://mixmax.com/)",
+  "author": "Prashannth V <prashannthvijayakumar@gmail.com> (https://prash.strikingly.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mixmaxhq/giphy-mixmax-app/issues"
+    "url": "https://github.com/prashannth/soundcloud-mixmax-link-resolver/issues"
   },
-  "homepage": "https://github.com/mixmaxhq/giphy-mixmax-app",
+  "homepage": "http://sdk.mixmax.com",
   "dependencies": {
     "body-parser": "^1.12.2",
     "cors": "^2.7.1",

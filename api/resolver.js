@@ -8,9 +8,9 @@ var _ = require('underscore');
 module.exports = function(req, res) {
   var url = req.query.url.trim();
 
-  // Giphy image urls are in the format:
-  // http://giphy.com/gifs/<seo-text>-<alphanumeric id>
-  var matches = url.match(/\-([a-zA-Z0-9]+)$/);
+  // Souncloud file urls are in the format:
+  // https://soundcloud.com/<user>/<file>
+  var matches = url.match(/soundcloud\.com\/([a-zA-Z0-9]+)/);
   if (!matches) {
     res.status(400).send('Invalid URL format');
     return;
@@ -21,9 +21,10 @@ module.exports = function(req, res) {
   var response;
   try {
     response = sync.await(request({
-      url: 'http://api.giphy.com/v1/gifs/' + encodeURIComponent(id),
+      url: 'https://api-v2.soundcloud.com/resolve?url=' + url,
       qs: {
-        api_key: key
+        client_id: key.client_id,
+        app_version: key.app_version
       },
       gzip: true,
       json: true,
@@ -34,11 +35,17 @@ module.exports = function(req, res) {
     return;
   }
 
-  var image = response.body.data.images.original;
-  var width = image.width > 600 ? 600 : image.width;
-  var html = '<img style="max-width:100%;" src="' + image.url + '" width="' + width + '"/>';
-  res.json({
-    body: html
-    // Add raw:true if you're returning content that you want the user to be able to edit
-  });
+  if (response.statusCode === 200) {
+    var html = '<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' + url + '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>';
+    res.json({
+      body: html
+      // Add raw:true if you're returning content that you want the user to be able to edit
+    });
+
+  } else if (response.statusCode === 404) {
+    res.status(404).send('No file found');
+  } else {
+    res.status(500).send('Error');
+  }
+
 };
